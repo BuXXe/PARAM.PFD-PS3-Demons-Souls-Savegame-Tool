@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://www.psdevwiki.com/ps3/PARAM.PFD -->
+<html lang="en-GB" dir="ltr" class="client-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>PARAM.PFD - PS3 Developer wiki</title>
+<meta name="generator" content="MediaWiki 1.24.2">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD">
+<link rel="edit" title="Edit" href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD">
+<link rel="shortcut icon" href="http://www.psdevwiki.com/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://www.psdevwiki.com/ps3/opensearch_desc.php" title="PS3 Developer wiki (en-gb)">
+<link rel="EditURI" type="application/rsd+xml" href="http://www.psdevwiki.com/ps3/api.php?action=rsd">
+<link rel="alternate" hreflang="x-default" href="http://www.psdevwiki.com/ps3/PARAM.PFD">
+<link rel="copyright" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.txt">
+<link rel="alternate" type="application/atom+xml" title="PS3 Developer wiki Atom feed" href="http://www.psdevwiki.com/ps3/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="./PARAM.PFD - PS3 Developer wiki_files/load.php">
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: psdevwiki_ps3-wiki_:resourceloader:filter:minify-css:7:869aa9133c31e6040d4830b259da96a8 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: psdevwiki_ps3-wiki_:resourceloader:filter:minify-css:7:f8d0c6895ce3ae14434c16b8fca59432 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(http://www.psdevwiki.com/ps3/resources/src/mediawiki.action/images/green-checkmark.png?2015-03-31T18:45:00Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: psdevwiki_ps3-wiki_:resourceloader:filter:minify-css:7:c6d6d1fa48a327d849b9004712371dca */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: psdevwiki_ps3-wiki_:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./PARAM.PFD - PS3 Developer wiki_files/load(1).php">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: psdevwiki_ps3-wiki_:resourceloader:filter:minify-css:7:8c8bf265801c7edebdc351f5c56959ef */</style>
+<script src="./PARAM.PFD - PS3 Developer wiki_files/load(2).php"></script><script src="./PARAM.PFD - PS3 Developer wiki_files/load(3).php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PARAM.PFD","wgTitle":"PARAM.PFD","wgCurRevisionId":46903,"wgRevisionId":46903,"wgArticleId":312,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Wikify needed","File Formats","Main"],"wgBreakFrames":false,"wgPageContentLanguage":"en-gb","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"PARAM.PFD","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"previewDialog":false,"publish":true}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":5,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback":0,
+"wllimit":250,"useeditwarning":1,"prefershttps":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"wikieditor-preview":1,"wikieditor-publish":1,"language":"en-gb","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"OnlineStatusBar_autoupdate":false,"OnlineStatusBar_status":"online","OnlineStatusBar_away":true,"OnlineStatusBar_active":true,"OnlineStatusBar_hide":false,"OnlineStatusBar_awaytime":15,"variant":"en-gb"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{});
+/* cache key: psdevwiki_ps3-wiki_:resourceloader:filter:minify-js:7:3b329eb2e1ced825358c31743a0b7ac5 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script><script src="./PARAM.PFD - PS3 Developer wiki_files/load(4).php"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/ps3/skins/Vector/csshover.min.htc")}</style><![endif]-->
+<link rel="stylesheet" href="./PARAM.PFD - PS3 Developer wiki_files/index.php"></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-PARAM_PFD skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+			
+                        <!-- Begin custom skin addition -->
+                        <center>
+                                <script type="text/javascript">
+                                        <!--
+                                        google_ad_client = "ca-pub-3613141703597295";
+                                        google_ad_slot = "3075174921";
+                                        google_ad_width = 728;
+                                        google_ad_height = 90;
+                                        //-->
+                                </script>
+                                <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+                        </center>
+                        <!-- End custom skin addition -->
+
+
+			<h1 id="firstHeading" class="firstHeading" lang="en-GB"><span dir="auto">PARAM.PFD</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From PS3 Developer wiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="http://www.psdevwiki.com/ps3/PARAM.PFD#mw-navigation">navigation</a>, 					<a href="http://www.psdevwiki.com/ps3/PARAM.PFD#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en-GB" dir="ltr" class="mw-content-ltr"><table class="metadata plainlinks ambox ambox-content" style="">
+<tbody><tr>
+<td style="border: none; padding: 0px; width: 1px;"></td>
+<td class="mbox-text" style=""> <b>This article is marked for rewrite/restructuring in proper wiki format.</b><br>You can help PS3 Developer wiki by <a rel="nofollow" target="_blank" class="external text" href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD">editing it</a>.<i> </i></td>
+</tr>
+</tbody></table>
+<p>Alot of this page is filled with speculation and in need of cleanup, making room for proper structured information
+</p><p><br>
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="http://www.psdevwiki.com/ps3/PARAM.PFD#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#Structure"><span class="tocnumber">2</span> <span class="toctext">Structure</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#PFD_Header"><span class="tocnumber">2.1</span> <span class="toctext">PFD Header</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#Tables_Header"><span class="tocnumber">2.2</span> <span class="toctext">Tables Header</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#X-Table"><span class="tocnumber">2.3</span> <span class="toctext">X-Table</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#Protected_files_table"><span class="tocnumber">2.4</span> <span class="toctext">Protected files table</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#Y-table"><span class="tocnumber">2.5</span> <span class="toctext">Y-table</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#Padding"><span class="tocnumber">2.6</span> <span class="toctext">Padding</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#Cryptography_and_Speculation"><span class="tocnumber">3</span> <span class="toctext">Cryptography and Speculation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#How_to_blank_the_tables"><span class="tocnumber">3.1</span> <span class="toctext">How to blank the tables</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#The_.22virtual_index.22"><span class="tocnumber">3.2</span> <span class="toctext">The "virtual index"</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#More_brainstorming"><span class="tocnumber">3.3</span> <span class="toctext">More brainstorming</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Description">Description</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD?section=1" title="Edit section: Description">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><b>PFD</b> (<b>P</b>rotected <b>F</b>iles <b>D</b>atabase) are responsible to prevent tampering of other files of the same folder, the only purpose is the security of the folder contents. Contains the cryptographic signatures of other files of the same folder (not all, but the ones that developers decided to be important enought to be secured).
+</p><p>Its used in several paths of the PS3, usually to secure data related with the user profile e.g:
+</p>
+<pre>/dev_hdd0/home/0000000*/savedata/SAVEDATA_DIRECTORY/PARAM.PFD &lt;---- in all save game folders
+/dev_hdd0/home/0000000*/trophy/NPCOMMID/PARAM.PFD &lt;--- in all trophy folders
+/dev_hdd0/home/0000000*/trophy/_TROPSYS_/PARAM.PFD &lt;---- in the "user trophy index" folder
+</pre>
+<p>Usually PARAM.SFO is one of the files listed (and supervised) by PARAM.PFD but this can vary.
+</p><p>Every time one of the files listed in the <b>Protected files table</b> inside the PARAM.PFD is updated... the PARAM.PFD itself needs to be updated to store the new signature of the updated file. e.g:
+</p>
+<ul><li>When you save a game there is some text that changes inside PARAM.SFO with your current "gameplay time", "character level", etc...</li>
+<li>When you unlock a new trophy the file TROPUSR.DAT is updated with this new data</li>
+<li>When you install new trophies (with a "trophy installer" in .TRP format) from a new game the TROPSYS.DAT is updated to index the new trophy installation</li></ul>
+<p>... In all this cases, there is a PARAM.PFD in the same folder that has been updated to store the new "signatures" of the other updated files
+</p><p>More info on other related file formats: <a href="http://www.psdevwiki.com/ps3/PARAM.SFO" title="PARAM.SFO">PARAM.SFO</a> <a href="http://www.psdevwiki.com/ps3/Game_Saves" title="Game Saves">Game Saves</a> <a href="http://www.psdevwiki.com/ps3/Trophy_files" title="Trophy files">Trophy files</a>.
+</p>
+<h2><span class="mw-headline" id="Structure">Structure</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD?section=2" title="Edit section: Structure">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<pre><b>PFD Header</b> (96 bytes)
+<b>Tables Header</b> (24 bytes)
+<b>X table</b> (456 bytes)
+<b>Protected files table</b>(31008 bytes)
+<b>Y table</b> (1140 bytes)
+<b>Padding</b> (44 bytes)
+
+Total file size = 96+24+456+31008+1140+44 = 32768 bytes (0x8000)
+</pre>
+<p><b>C Code By Jakes625, Credits to flatz for original source</b>
+<code>
+</code></p><code>
+<pre>   typedef unsigned long int u64;
+   tyepdef unsigned char byte;
+</pre>
+<pre>   tyepdef struct
+   {
+       u64 magic; //PDFB
+       u64 version; //3 or 4 else error
+   } pfd_header_t;
+</pre>
+<pre>   typedef struct
+   {
+       byte bottom_hash[20];
+       byte top_hash[20];
+       byte hash_key[20]; //use the decrypted hash_key for sha1 hmac hashing (in sig table)
+       byte padding[4];
+   } header_table_t;
+</pre>
+<pre>   typedef struct
+   {
+       u64 num_reserved; //# of entries reserved in entry table (0x39)
+       u64 num_total;  //# of total entries (0x72)
+       u64 num_used; //# of used entries (the number of files in the folder with pfd)
+       u64 hash_entries[39]; //num reserved (* if you prefer)
+   } pfd_hash_table_t;
+</pre>
+<pre>   typedef struct
+   {
+       u64 addition_entry;
+       char file_name[65]; //c string
+       byte padding_0[7];
+       union
+       {
+           struct
+           {
+                byte key[64]; //used for file decryption/encryption and sig table hashing
+                byte file_hashes[4][20]; //4 hashes from hmac sha1 following the key
+                byte padding_1[40];
+                u64 file_size;
+           };
+           byte file_certificate[192];
+       }
+   } pfd_entry_table_t;
+</pre>
+</code><pre><code>   typedef struct
+   {
+       pfd_header_t header;
+       byte header_table_iv[0xF]; //key used for aes cbc decryption of header table
+       pfd_header_table_t header_table;
+       pfd_hash_table_t hash_table;
+       pfd_entry_table_t entry_table;
+       byte sig_table[39][20]; //array of 39 signatures (corresponding to hash table) and each signature is 20 bytes long (hmac sha1)
+       byte end_padding[44]; //out of memory I think it's 44
+   } pfd_file_t;</code>
+</pre>
+<p>The size of the file is fixed because the number of entries in both <b>X table</b> &amp; <b>Y table</b> is 57 (when the entry is not used his position is marked as "not-used"). In the same way... the <b>Protected files table</b> has an area reserved for a maximun of 114 entries (not used entries are filled with zeroes). As result the file contains the maximun number of possible entries
+</p>
+<ul><li>Useful game saves used in this page as examples
+<ul><li><a rel="nofollow" target="_blank" class="external free" href="http://www.gamefaqs.com/ps3/941950-mirrors-edge/saves">http://www.gamefaqs.com/ps3/941950-mirrors-edge/saves</a> (the first one region North America). Mirror: <a rel="nofollow" target="_blank" class="external free" href="http://www.multiupload.nl/SWJ4Y4H7ER">http://www.multiupload.nl/SWJ4Y4H7ER</a></li>
+<li><a rel="nofollow" target="_blank" class="external free" href="http://www.gamefaqs.com/ps3/933123-heavy-rain/saves">http://www.gamefaqs.com/ps3/933123-heavy-rain/saves</a></li></ul></li></ul>
+<p>The structure of the PARAM.PFD used in Mirror's edge game save can be considered "rare", this wiki page uses this file for explaining the structure because is perfect to understand how it works, the structure contains all the "problems" not present in "standard" files that can be considered unknown... there are other game saves that can be used (MotoGP10, Heavy rain)... but the list of protected files in heavy rain contains more than 100 files (use heavy rain if you are coding an app as a "stress test")
+</p>
+<h3><span class="mw-headline" id="PFD_Header">PFD Header</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD?section=3" title="Edit section: PFD Header">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>From 0x00 to 0x60
+Size = 96 bytes
+</pre>
+<p>First, you need to decrypt the header table itself (you can decrypt it by call <i>Decrypt with portability</i>). The 128-bit key for it is stored at the 0x10 (it is an initialization vector). These bytes are randomly generated when the file is created and never changes after it.
+</p><p>After decrypting the header table you can grab a third key from the table at offset 0x48. These bytes are randomly generated. This key is used as HMAC key to authenticate many data. An empty data gives us a default HMAC hash.
+</p><p>You can decrypt the hash table on your PC too. Grab the second key from page <a href="http://www.psdevwiki.com/ps3/Keys" title="Keys">Keys</a> at section <b>sc_iso module 1.00-4.00</b>. It will be an AES-128 key, and IV is stored at 0x10 offset in .PFD. The algorithm is AES in CBC mode.
+</p><p>The header table is encrypted and always changes when the file is updated, is decrypted by vtrm
+</p>
+<ul><li>Mirror's edge game save <b>Encrypted PFD Header</b></li></ul>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Area </th>
+<th> Offset </th>
+<th> Size </th>
+<th> Value </th>
+<th> Description </th>
+<th> Notes
+</th></tr>
+<tr>
+<td rowspan="3" style="background-color:#DDDDDD;"> </td>
+<td> 0x00 </td>
+<td> 0x08 (8 bytes) </td>
+<td> 0000000050464442 </td>
+<td> <b>magic</b> </td>
+<td> <b>PFDB</b> (in ASCII)
+</td></tr>
+<tr>
+<td> 0x08 </td>
+<td> 0x08 (8 bytes) </td>
+<td> 0000000000000003 </td>
+<td> <b>version</b> </td>
+<td> Must be 3
+</td></tr>
+<tr>
+<td> 0x10 </td>
+<td> 0x10 (16 bytes) </td>
+<td> 69152C97812B25C52AD4FA18E4B816A8 </td>
+<td> <b>header_table_iv</b> </td>
+<td> 128-bits initialization vector. Used to en/decrypt <b>header_table</b>
+</td></tr>
+<tr>
+<td rowspan="4" style="background-color:#DDDDDD;"> <b>header <br> table</b> </td>
+<td> 0x20 </td>
+<td> 0x14 (20 bytes) </td>
+<td> 7C1F5C28A7EE4D3922ADC828E6CD7888980F33B6 </td>
+<td> <b>Y-Table SHA1-HMAC hash</b> </td>
+<td> Used only occupied space, i.e. without padding
+</td></tr>
+<tr>
+<td> 0x34 </td>
+<td> 0x14 (20 bytes) </td>
+<td> 2394EEE99706774E71912413A7CFDBE5E38E8D0C </td>
+<td> <b>Entry Table Header &amp; X-Table SHA1-HMAC hash</b> </td>
+<td> Data started at 0x60
+</td></tr>
+<tr>
+<td> 0x48 </td>
+<td> 0x14 (20 bytes)</td>
+<td> 5BCF880FCB7B59C4C5A3D983904B6CEEDE27152 </td>
+<td> <b>file_hmac_key</b> </td>
+<td>
+</td></tr>
+<tr>
+<td> 0x5C </td>
+<td> 0x04 (4 bytes) </td>
+<td> AA9C2F85 </td>
+<td> <i>padding</i> </td>
+<td>
+</td></tr>
+</tbody></table>
+<pre>0x0000  00 00 00 00 50 46 44 42  00 00 00 00 00 00 00 03 |....PFDB........|
+0x0010  69 15 2C 97 81 2B 25 C5  2A D4 FA 18 E4 B8 16 A8 |i.,..+%.*.......|
+0x0020  7C 1F 5C 28 A7 EE 4D 39  22 AD C8 28 E6 CD 78 88 ||.\(..M9"..(..x.|
+0x0030  98 0F 33 B6 23 94 EE E9  97 06 77 4E 71 91 24 13 |..3.#.....wNq.$.|
+0x0040  A7 CF DB E5 E3 8E 8D 0C  5B CF 88 07 FC B7 B5 9C |........[.......|
+0x0050  4C 5A 3D 98 39 04 B6 CE  ED E2 71 52 AA 9C 2F 85 |LZ=.9.....qR../.|
+</pre>
+<ul><li>Mirror's edge game save <b>Decrypted PFD Header</b></li></ul>
+<pre>0x0000  00 00 00 00 50 46 44 42  00 00 00 00 00 00 00 03 |....PFDB........|
+0x0010  69 15 2C 97 81 2B 25 C5  2A D4 FA 18 E4 B8 16 A8 |i.,..+%.*.......|
+0x0020  2F 0C F2 BA 8B 59 F3 48  7D 7E A4 8D 63 77 6A 9A |/....Y.H}~..cwj.|
+0x0030  20 1A D8 75 CD 70 9C 6B  B4 99 B8 6E 61 D7 49 6B | ..u.p.k...na.Ik|
+0x0040  B6 3D 86 FC F0 42 79 15  F4 47 42 26 C2 8D 46 D4 |.=...By..GB&amp;..F.|
+0x0050  C6 67 A4 E6 B9 C5 9F 3D  65 C2 33 14 1C 1D 5F 8E |.g.....=e.3..._.|
+</pre>
+<h3><span class="mw-headline" id="Tables_Header">Tables Header</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD?section=4" title="Edit section: Tables Header">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>From 0x60 to 0x78
+Size = 24 bytes
+</pre>
+<p>This header defines the structure of the tables
+</p>
+<ul><li>Mirror's edge game save <b>Tables Header</b></li></ul>
+<pre>0x0060  00 00 00 00 00 00 00 39  00 00 00 00 00 00 00 72 |.......9.......r|
+0x0070  00 00 00 00 00 00 00 21                          |.......!
+</pre>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Offset </th>
+<th> Size </th>
+<th> Value </th>
+<th> Description </th>
+<th> Notes
+</th></tr>
+<tr>
+<td> 0x60 </td>
+<td> 0x08 bytes </td>
+<td> 0000000000000039 </td>
+<td> <b>X and Y tables reserved entries</b> </td>
+<td> <b>57</b> (in decimal). Seems correct in all the examples found, but is speculation&nbsp;???
+</td></tr>
+<tr>
+<td> 0x68 </td>
+<td> 0x08 bytes </td>
+<td> 0000000000000072 </td>
+<td> <b>Protected files table reserved entries</b> </td>
+<td> <b>114</b> (in decimal). Seems correct in all the examples found, but is speculation&nbsp;???
+</td></tr>
+<tr>
+<td> 0x70 </td>
+<td> 0x08 bytes </td>
+<td> 0000000000000021 </td>
+<td> <b>Protected files table used entries</b> </td>
+<td> <b>33</b> (in decimal). Can vary, from 1 to 114 in decimal (or from 0x00 to 0x71)
+</td></tr>
+</tbody></table>
+<h3><span class="mw-headline" id="X-Table">X-Table</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD?section=5" title="Edit section: X-Table">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>From 0x78 to 0x240
+Size = 456 bytes
+Entry lenght = 8 bytes
+Number of entries = 57
+</pre>
+<p>Each entry can contain a "file index" (from 0x00 to 0x71... or 1 to 114 in decimal) that is pointing (or is asigned) to one of the files in the <b>Protected files table</b>. How this assignation works is unknown
+</p><p>If the "file index" is 72 (position 115) it means that is pointing out of the <b>Protected files table</b> (not used)
+</p><p>The first "file index" (nº0x00) is always located at 0xb8 (entry nº9 of <b>X-Table</b>, marked in blue in the example). In complex PARAM.PFD like the one used as example the value is replaced by another "file index", this seems to indicate that there are more "file index" spreaded in the <b>Protected files table</b> and "file index" nº0x00 is located in this new position
+</p><p>The table does not fills with entries from top to bottom, usually the first entries are not used (marked as 72) followed by entries with whatever number from 0 to 71 (by now the entries used seems random), and mixed with more 72's entries
+</p><p>Used entries has a number asigned by his position in the table e.g:
+</p>
+<ul><li>Mirror's edge game save <b>X table</b></li></ul>
+<pre>0070                           00 00 00 00 00 00 00 72           .......r|
+0080  00 00 00 00 00 00 00 <b>01</b>  00 00 00 00 00 00 00 72  |...............r|
+0090  00 00 00 00 00 00 00 <b>0C</b>  00 00 00 00 00 00 00 72  |...............r|
+00a0  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 <b>1F</b>  |.......r........|
+00b0  00 00 00 00 00 00 00 <b>10</b>  <span style="background:#6666ff;">00 00 00 00 00 00 00 <b>1B</b></span>  |................|
+00c0  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 <b>14</b>  |.......r........|
+00d0  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 72  |.......r.......r|
+00e0  00 00 00 00 00 00 00 <b>0B</b>  00 00 00 00 00 00 00 <b>0D</b>  |................|
+00f0  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 72  |.......r.......r|
+0100  00 00 00 00 00 00 00 <b>15</b>  00 00 00 00 00 00 00 <b>19</b>  |................|
+0110  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 <b>13</b>  |.......r........|
+0120  00 00 00 00 00 00 00 <b>17</b>  00 00 00 00 00 00 00 72  |...............r|
+0130  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 <b>0E</b>  |.......r........|
+0140  00 00 00 00 00 00 00 <b>11</b>  00 00 00 00 00 00 00 72  |...............r|
+0150  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 <b>18</b>  |.......r........|
+0160  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 72  |.......r.......r|
+0170  00 00 00 00 00 00 00 <b>1A</b>  00 00 00 00 00 00 00 <b>12</b>  |................|
+0180  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 72  |.......r.......r|
+0190  00 00 00 00 00 00 00 <b>04</b>  00 00 00 00 00 00 00 72  |...............r|
+01a0  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 <b>1C</b>  |.......r.......r|
+01b0  00 00 00 00 00 00 00 <b>07</b>  00 00 00 00 00 00 00 72  |...............r|
+01c0  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 72  |.......r.......r|
+01d0  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 72  |.......r.......r|
+01e0  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 <b>03</b>  |.......r........|
+01f0  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 72  |.......r.......r|
+0200  00 00 00 00 00 00 00 <b>1D</b>  00 00 00 00 00 00 00 72  |...............r|
+0210  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 <b>20</b>  |.......r........|
+0220  00 00 00 00 00 00 00 <b>0F</b>  00 00 00 00 00 00 00 72  |...............r|
+0230  00 00 00 00 00 00 00 72  00 00 00 00 00 00 00 <b>1E</b>  |.......r........|
+</pre>
+<p>In this table there are 25 entries used
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Position in table </th>
+<th> Virtual Index ID&nbsp;?
+</th></tr>
+<tr>
+<td> 1 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 2 </td>
+<td> 0x01
+</td></tr>
+<tr>
+<td> 3 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 4 </td>
+<td> 0x0C
+</td></tr>
+<tr>
+<td> 5 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 6 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 7 </td>
+<td> 0x1F
+</td></tr>
+<tr>
+<td> 8 </td>
+<td> 0x10
+</td></tr>
+<tr style="background:#6666ff;">
+<td> 9 </td>
+<td> 0x1B
+</td></tr>
+<tr>
+<td> 10 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 11 </td>
+<td> 0x14
+</td></tr>
+<tr>
+<td> 12 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 13 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 14 </td>
+<td> 0x0B
+</td></tr>
+<tr>
+<td> 15 </td>
+<td> 0x0D
+</td></tr>
+<tr>
+<td> 16 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 17 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 18 </td>
+<td> 0x15
+</td></tr>
+<tr>
+<td> 19 </td>
+<td> 0x19
+</td></tr>
+<tr>
+<td> 20 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 21 </td>
+<td> 0x13
+</td></tr>
+<tr>
+<td> 22 </td>
+<td> 0x17
+</td></tr>
+<tr>
+<td> 23 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 24 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 25 </td>
+<td> 0x0E
+</td></tr>
+<tr>
+<td> 26 </td>
+<td> 0x11
+</td></tr>
+<tr>
+<td> 27 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 28 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 29 </td>
+<td> 0x18
+</td></tr>
+<tr>
+<td> 30 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 31 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 32 </td>
+<td> 0x1A
+</td></tr>
+<tr>
+<td> 33 </td>
+<td> 0x12
+</td></tr>
+<tr>
+<td> 34 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 35 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 36 </td>
+<td> 0x04
+</td></tr>
+<tr>
+<td> 37 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 38 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 39 </td>
+<td> 0x1C
+</td></tr>
+<tr>
+<td> 40 </td>
+<td> 0x07
+</td></tr>
+<tr>
+<td> 41 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 42 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 43 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 44 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 45 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 46 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 47 </td>
+<td> 0x03
+</td></tr>
+<tr>
+<td> 48 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 49 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 50 </td>
+<td> 0x1D
+</td></tr>
+<tr>
+<td> 51 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 52 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 53 </td>
+<td> 0x20
+</td></tr>
+<tr>
+<td> 54 </td>
+<td> 0x0F
+</td></tr>
+<tr>
+<td> 55 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 56 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+<tr>
+<td> 57 </td>
+<td> 0x1E
+</td></tr>
+</tbody></table>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Other possible values </th>
+<th> Description
+</th></tr>
+<tr>
+<td> 0000000000000000 </td>
+<td> File index nº 1
+</td></tr>
+<tr>
+<td> 0000000000000001 </td>
+<td> File index nº 2
+</td></tr>
+<tr>
+<td> 0000000000000002 </td>
+<td> File index nº 3
+</td></tr>
+<tr>
+<td> 0000000000000071 </td>
+<td> File index nº 114
+</td></tr>
+<tr>
+<td> 0000000000000072 </td>
+<td> Out of <b>Protected files table</b> (not used)
+</td></tr>
+</tbody></table>
+<h3><span class="mw-headline" id="Protected_files_table">Protected files table</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD?section=6" title="Edit section: Protected files table">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>From 0x240 to 0x7B60
+Size = 31008 bytes
+Entry lenght = 272 bytes
+Number of reserved entries = 114
+Number of used entries = variable from 1 to 114
+</pre>
+<ul><li>The table contains 114 reserved entries, each used entry has this structure</li></ul>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Size </th>
+<th> Value </th>
+<th> Name </th>
+<th> Description
+</th></tr>
+<tr>
+<td> 0x08 (8 bytes) </td>
+<td> 00000000000000** </td>
+<td> <b>Virtual Index ID&nbsp;?</b> </td>
+<td> Valid values from 0x00 to 0x71 (and 0x72 = Not used)
+</td></tr>
+<tr>
+<td> 0x41 (65 bytes) </td>
+<td> EXAMPLE.WTF </td>
+<td> <b>File Name</b> </td>
+<td> Name of the file included the point and the extension in ASCII (Null-terminated)
+</td></tr>
+<tr>
+<td> 0x07 (7 bytes) </td>
+<td>&nbsp;:Wtf-o0- </td>
+<td> <b>Random garbage</b> </td>
+<td> Usually zeroed (crysis2 savedata uses <b>CELL</b> and heavenly sword <b>s:Music</b>) (random stack data because of an uninitialized variable?)
+</td></tr>
+<tr>
+<td> 0xC0 (192 bytes) </td>
+<td>&nbsp;????????... </td>
+<td> <b>File Certificate?</b> </td>
+<td> Encrypted file info? A part of it is decrypted by VTRM, key is unknown yet. Last 8 bytes of it is <b>File Size</b>.
+</td></tr></tbody></table>
+<ul><li>Notes</li></ul>
+<p>Certificate: The first 64 bytes are the entry key used to decrypt PARAM.SFO (or whatever entry the file is) and the next 80 bytes are the 4 hmac sha1 hashes. PARAM.SFO has more than other files because it goes through a different hashing process using the param sfo encryption key as do others such as trophies and console id etc. Then 40 bytes of padding, followed by (u64) (8 bytes) of the file size of the file entry
+</p><p>Encrypted by VTRM using the same portability algorithm. Key is unknown yet. The first 0x10 and the second 0x10 bytes are randomly generated (key/iv?).
+</p><p>Each entry can store the signature of one of the files in the folder, there is always an entry used to store the signature of <a href="http://www.psdevwiki.com/ps3/PARAM.SFO" title="PARAM.SFO">PARAM.SFO</a>, this gives a maximun number of protected files generated by the game of 113. Used entries fills the table from top to bottom, not-used entries are placed at the end of the table filled with zeroes
+</p><p>The first 8 bytes of each entry (Virtual Index ID) works in the same way than the entries in the <b>X table</b>, when not used are marked as "72" and when used are randomnly placed asigning a "file index" to the entry. This "file index" does not matches with the position of the entry in the <b>Protected files table</b> itself... (e.g: indexed 0x06 is in position 14)
+</p><p>For a theoricall file with alll entries used (114 protected files), half of the "file index" numbers will be spreaded between the <b>X table</b> (can only contain 57) ant the first 8 bytes of some entries in the <b>Protected files table</b> (the other 57)
+</p>
+<ul><li>Mirror's edge game save <b>Protected Files Table</b></li></ul>
+<p>The table contains 33 used entries, 8 of them are "indexed"
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Position in table </th>
+<th> Virtual Index ID&nbsp;? </th>
+<th> File Name </th>
+<th> Unknown&nbsp;? </th>
+<th> Certificate&nbsp;? </th>
+<th> File Size
+</th></tr>
+<tr>
+<td> 1 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> PARAM.SFO </td>
+<td> 00568CD8 </td>
+<td> longer than others </td>
+<td> 00000AB0
+</td></tr>
+<tr>
+<td> 2 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAVTOC0.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000058C
+</td></tr>
+<tr>
+<td> 3 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV33.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00000584
+</td></tr>
+<tr>
+<td> 4 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV14.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00009543
+</td></tr>
+<tr>
+<td> 5 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV3.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000848F
+</td></tr>
+<tr>
+<td> 6 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV22.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00008221
+</td></tr>
+<tr>
+<td> 7 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV21.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00009D66
+</td></tr>
+<tr>
+<td> 8 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV13.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00009EF5
+</td></tr>
+<tr>
+<td> 9 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV5.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000CD1B
+</td></tr>
+<tr>
+<td> 10 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV6.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000B3AF
+</td></tr>
+<tr>
+<td> 11 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV7.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00008266
+</td></tr>
+<tr>
+<td> 12 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV8.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00007618
+</td></tr>
+<tr>
+<td> 13 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV16.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000B95A
+</td></tr>
+<tr>
+<td> 14 </td>
+<td> 0x06 </td>
+<td> SAV0.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00009F4D
+</td></tr>
+<tr>
+<td> 15 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV19.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000A11B
+</td></tr>
+<tr>
+<td> 16 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV15.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000CC00
+</td></tr>
+<tr>
+<td> 17 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV20.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 000109F0
+</td></tr>
+<tr>
+<td> 18 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV11.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00009C0A
+</td></tr>
+<tr>
+<td> 19 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV12.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000948D
+</td></tr>
+<tr>
+<td> 20 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV9.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000C712
+</td></tr>
+<tr>
+<td> 21 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV17.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000E4FD
+</td></tr>
+<tr>
+<td> 22 </td>
+<td> 0x02 </td>
+<td> SAV18.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000AE4D
+</td></tr>
+<tr>
+<td> 23 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV2.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000CD55
+</td></tr>
+<tr>
+<td> 24 </td>
+<td> 0x05 </td>
+<td> SAV1.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 000098B3
+</td></tr>
+<tr>
+<td> 25 </td>
+<td> 0x16 </td>
+<td> SAV23.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00004FBE
+</td></tr>
+<tr>
+<td> 26 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV10.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000ADBD
+</td></tr>
+<tr>
+<td> 27 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV35.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00008E2E
+</td></tr>
+<tr style="background:#6666ff;">
+<td> 28 </td>
+<td> 0x00 </td>
+<td> SAVTOC1.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00000108
+</td></tr>
+<tr>
+<td> 29 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV36.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00009CBE
+</td></tr>
+<tr>
+<td> 30 </td>
+<td> 0x08 </td>
+<td> SAV26.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000B4D7
+</td></tr>
+<tr>
+<td> 31 </td>
+<td> 0x09 </td>
+<td> SAV27.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00009FD1
+</td></tr>
+<tr>
+<td> 32 </td>
+<td> 0x0A </td>
+<td> SAV28.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 00007D73
+</td></tr>
+<tr>
+<td> 33 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> SAV38.BIN </td>
+<td> 00568CD8 </td>
+<td> </td>
+<td> 0000D401
+</td></tr>
+<tr>
+<td> Up to 114 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span>
+</td></tr>
+</tbody></table>
+<h3><span class="mw-headline" id="Y-table">Y-table</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD?section=7" title="Edit section: Y-table">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>From 0x7B60 to 0x7FD4
+Size = 1140 bytes
+Entry lenght = 20 bytes (SHA-1 HMAC digest)
+Number of entries = 57
+</pre>
+<p>Is directly related with the <b>X table</b>, both matches in the total number of entries (57) and wich ones are used (e.g. when the <b>X table</b> has a entry in position 12... the <b>Y table</b> has position 12 used) 
+</p><p>Only used entries contains a real SHA1-HMAC hash. It can be the SHA1-HMAC hash of entry (a concatenation of 0x41 bytes of <b>File Name</b> and 0xC0 bytes of <b>File certificate</b> is used as data) or some unknown SHA1-HMAC hash (hash of file data related to the entry?). Unused entries have a "default" hash (SHA1-HMAC of empty data). In a theoricall PARAM.PFD with no files listed, the <b>Y table</b> would have all his 57 entries with a default hash).
+</p><p>The <b>Y table</b> has a repeating pattern so an entry for each potential file with the blank entry (I.E. no file) being represented by the repeating byte pattern.
+</p>
+<ul><li>Mirror's edge game save <b>Y table</b></li></ul>
+<p>When a entry in this table is not used is "marked" with a "standard" value... for mirror's edge game save is: <b>5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0</b>
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Position in table </th>
+<th> Hash&nbsp;???
+</th></tr>
+<tr>
+<td> 1 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 2 </td>
+<td> 83C16E92 F5F5FAAF 19A00810 186E82A9 313AADAD
+</td></tr>
+<tr>
+<td> 3 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 4 </td>
+<td> 28458FC1 3B00ED44 EF5FA5BE D55D016E 94066099
+</td></tr>
+<tr>
+<td> 5 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 6 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 7 </td>
+<td> 42CBF813 4469B91F 541DCF76 CC4934E9 F6CDEDC6
+</td></tr>
+<tr>
+<td> 8 </td>
+<td> 6B88527E002E78DB1D915573DD44951F0CBE6A3C
+</td></tr>
+<tr style="background:#6666ff;">
+<td> 9 </td>
+<td> 703F1A6F0A576A8D85E8EB35B30FE5DAB7689988
+</td></tr>
+<tr>
+<td> 10 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 11 </td>
+<td> EFAF21CD389AC84662601AC5B449AE12CCF739F9
+</td></tr>
+<tr>
+<td> 12 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 13 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 14 </td>
+<td> C45F773837AE76FAF3D662974438CE7FD620D2D0
+</td></tr>
+<tr>
+<td> 15 </td>
+<td> 6BE399A6B97F6158C6194ED6C8CC6A1B2AD6ADDB
+</td></tr>
+<tr>
+<td> 16 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 17 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 18 </td>
+<td> 933E85E3651EC32C05929CAD2CD23081BC975E9C
+</td></tr>
+<tr>
+<td> 19 </td>
+<td> 323A62857BAD6BD1D3B1ED8584723CC36C4D915D
+</td></tr>
+<tr>
+<td> 20 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 21 </td>
+<td> 1B9491E3F006528C387F4A8FAD75455E9780EF0D
+</td></tr>
+<tr>
+<td> 22 </td>
+<td> A69EC11F680BCDC8260CDF38FA47C3FCD1D16495
+</td></tr>
+<tr>
+<td> 23 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 24 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 25 </td>
+<td> 41534126B047CE6AADC6606C24766246C4F712D7
+</td></tr>
+<tr>
+<td> 26 </td>
+<td> 08F26808FB5A47B4E35E71DDAA3167CD5CD08D75
+</td></tr>
+<tr>
+<td> 27 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 28 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 29 </td>
+<td> 71A20B8F36D2853E4E84AB998AD201A0AC8C629C
+</td></tr>
+<tr>
+<td> 30 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 31 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 32 </td>
+<td> 18BA71B3CEC1CCCDAD3395323C4259D72B1EF5E0
+</td></tr>
+<tr>
+<td> 33 </td>
+<td> B08D1FAB5A5FA370B5FF2930024CE7CAC9F08234
+</td></tr>
+<tr>
+<td> 34 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 35 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 36 </td>
+<td> E81D24D0EF67CDC849260668B2A99F982C545929
+</td></tr>
+<tr>
+<td> 37 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 38 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 39 </td>
+<td> 6347B31E98FA9A58195AB5D9ED1548A46CFE6FCE
+</td></tr>
+<tr>
+<td> 40 </td>
+<td> 4CB48133E388EDBCF0E0AD0DB6CD55020CB03342
+</td></tr>
+<tr>
+<td> 41 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 42 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 43 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 44 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 45 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 46 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 47 </td>
+<td> D5097670CAF4186E89009EF031FD721FE3C3E083
+</td></tr>
+<tr>
+<td> 48 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 49 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 50 </td>
+<td> 49481F76A9C591E03CA1B115D0FC9737A48837A3
+</td></tr>
+<tr>
+<td> 51 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 52 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 53 </td>
+<td> 389ED925282AFEC432D2A1F042E0043D0E91F785
+</td></tr>
+<tr>
+<td> 54 </td>
+<td> E40D4A3ABB1EEB92A1BEF55B7730AB6BB5CDDB2D
+</td></tr>
+<tr>
+<td> 55 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 56 </td>
+<td style="background:Red;"> 5A7EAF6D 029992D0 7580EBCA 42698114 9F2C5DF0
+</td></tr>
+<tr>
+<td> 57 </td>
+<td> C1CE8AF3 7CA63059 B835B2D6 CD64E506 B2E55397
+</td></tr>
+</tbody></table>
+<p>A screencapture of this table with the width fixed (each entry is one row)... there is a total of 57 entries, 25 of them used. <a rel="nofollow" target="_blank" class="external free" href="http://img6.imagebanana.com/img/q82sh1dj/Ytablemirrorsedge.jpg">http://img6.imagebanana.com/img/q82sh1dj/Ytablemirrorsedge.jpg</a>
+</p>
+<h3><span class="mw-headline" id="Padding">Padding</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD?section=8" title="Edit section: Padding">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>Size = 44 bytes
+</pre>
+<p>Not much to say about this padding, is an area filled with zeroes to increase the size of the file to 32768 bytes (0x8000)
+</p>
+<hr>
+<hr>
+<hr>
+<h2><span class="mw-headline" id="Cryptography_and_Speculation">Cryptography and Speculation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD?section=9" title="Edit section: Cryptography and Speculation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="How_to_blank_the_tables">How to blank the tables</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD?section=10" title="Edit section: How to blank the tables">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In the header of the file there are 3 hashes that belongs to the 3 tables (X table, protected files table, and Y table). The first step needed to modify the file is to be able to generate this hashes for our "new" modifyed tables... but in fact, this hashes are the "only" thing needed to pwn the whole file security, because we can "clean-up" all the tables (in other words, we dont need to understand how this tables are built, how the protected files signatures are generated, or what this ID's means, because we can erase all this data):
+</p>
+<ul><li>1.- First is needed to look at "X table" to find an entry marked as 0x72 (not used), then go to the "Y table" and using this same position make a copy of the entry (this will be needed later in step 5 when cleaning-up "Y table" by pasting this value repeatedly)</li>
+<li>2.- Fill with zeroes the value "Protected files table used entries" (from 0x70 to 0x78)</li>
+<li>3.- Fill "X table" with "not-used" entryes (from 0x78 to 0x240... paste 57 times the entry 0000000000000072)</li>
+<li>4.- Fill with zeroes all the "protected files table" (from 0x240 to 0x7B60)</li>
+<li>5.- Fill "Y table" with "not-used" entries (from 0x7B60 to 0x7FD4... paste 57 times the "not used" value for this table copyed previously)</li></ul>
+<p>After cleaning-up the tables and regenerating his hashes, the behaviour of the PS3 when trying to load this "BLANKED.PFD" file can give some possible results:
+</p>
+<ul><li>File is valid, is loaded, but there is "something" that states this file originally had X "protected files" listed.... but now there is none = epic fail</li>
+<li>File is valid, is loaded, and PARAM.SFO is added to the list of protected files (this is something that seems to happen "by default"), consequently the PARAM.PFD is updated, both files are valid = partial win</li>
+<li>File is valid, is loaded, no protected files are added to the list = epic win</li></ul>
+<p>It depends of the function that creates/updates the .PFD wich files needs to be added to the list of "protected files" (this is done the first time when the file is created), but probably games can add more files for his game saves
+</p><p>The theory is simple... is a valid file with empty tables, is something not tested yet, but if somebody finds a way to generate the header hashes... this theory is the next test that worths a try
+</p>
+<h3><span class="mw-headline" id="The_.22virtual_index.22">The "virtual index"</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD?section=11" title="Edit section: The &quot;virtual index&quot;">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Mirror's edge has a total of 33 "protected files" (listed in the protected files table)... this number matches with the 33 "indexed" numbers that are spreading between "X table" and "protected files table" itself... if we place all the entries from all tables together we can reorder all by using his ID number in a "virtual index"
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th> Index ID </th>
+<th> Index ID position in "X Table" </th>
+<th> Index ID position in "Protected Files Table" (File Name asociated) </th>
+<th> Y table hash&nbsp;? (same position than X table)
+</th></tr>
+<tr>
+<td style="background:#6666ff;"> 0x00 (nº1)  </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td style="background:#6666ff;"> 28 (SAVTOC1.BIN) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> (default)
+</td></tr>
+<tr>
+<td> 0x01 (nº2) </td>
+<td> 2 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 83C16E92F5F5FAAF19A00810186E82A9313AADAD
+</td></tr>
+<tr>
+<td> 0x02 (nº3) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 22 (SAV18.BIN ) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> (default)
+</td></tr>
+<tr>
+<td> 0x03 (nº4) </td>
+<td> 47 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> D5097670CAF4186E89009EF031FD721FE3C3E083
+</td></tr>
+<tr>
+<td> 0x04 (nº5) </td>
+<td> 36 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> E81D24D0EF67CDC849260668B2A99F982C545929
+</td></tr>
+<tr>
+<td> 0x05 (nº6) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 24 (SAV1.BIN ) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> (default)
+</td></tr>
+<tr>
+<td> 0x06 (nº7) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 14 (SAV0.BIN ) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> (default)
+</td></tr>
+<tr>
+<td> 0x07 (nº8) </td>
+<td> 40 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 4CB48133E388EDBCF0E0AD0DB6CD55020CB03342
+</td></tr>
+<tr>
+<td> 0x08 (nº9) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 30 (SAV26.BIN ) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> (default)
+</td></tr>
+<tr>
+<td> 0x09 (nº10) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 31 (SAV27.BIN ) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> (default)
+</td></tr>
+<tr>
+<td> 0x0A (nº11) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 32 (SAV28.BIN ) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> (default)
+</td></tr>
+<tr>
+<td> 0x0B (nº12) </td>
+<td> 14 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> C45F773837AE76FAF3D662974438CE7FD620D2D0
+</td></tr>
+<tr>
+<td> 0x0C (nº13) </td>
+<td> 4 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 28458FC13B00ED44EF5FA5BED55D016E94066099
+</td></tr>
+<tr>
+<td> 0x0D (nº14) </td>
+<td> 15 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 6BE399A6B97F6158C6194ED6C8CC6A1B2AD6ADDB
+</td></tr>
+<tr>
+<td> 0x0E (nº15) </td>
+<td> 25 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 41534126B047CE6AADC6606C24766246C4F712D7
+</td></tr>
+<tr>
+<td> 0x0F (nº16) </td>
+<td> 54 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> E40D4A3ABB1EEB92A1BEF55B7730AB6BB5CDDB2D
+</td></tr>
+<tr>
+<td> 0x10 (nº17) </td>
+<td> 8 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 6B88527E002E78DB1D915573DD44951F0CBE6A3C
+</td></tr>
+<tr>
+<td> 0x11 (nº18) </td>
+<td> 26 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 08F26808FB5A47B4E35E71DDAA3167CD5CD08D75
+</td></tr>
+<tr>
+<td> 0x12 (nº19) </td>
+<td> 33 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> B08D1FAB5A5FA370B5FF2930024CE7CAC9F08234
+</td></tr>
+<tr>
+<td> 0x13 (nº20) </td>
+<td> 21 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 1B9491E3F006528C387F4A8FAD75455E9780EF0D
+</td></tr>
+<tr>
+<td> 0x14 (nº21) </td>
+<td> 11 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> EFAF21CD389AC84662601AC5B449AE12CCF739F9
+</td></tr>
+<tr>
+<td> 0x15 (nº22) </td>
+<td> 18 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 933E85E3651EC32C05929CAD2CD23081BC975E9C
+</td></tr>
+<tr>
+<td> 0x16 (nº23) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 25 (SAV23.BIN ) </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> (default)
+</td></tr>
+<tr>
+<td> 0x17 (nº24) </td>
+<td> 22 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> A69EC11F680BCDC8260CDF38FA47C3FCD1D16495
+</td></tr>
+<tr>
+<td> 0x18 (nº25) </td>
+<td> 29 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 71A20B8F36D2853E4E84AB998AD201A0AC8C629C
+</td></tr>
+<tr>
+<td> 0x19 (nº26) </td>
+<td> 19 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 323A62857BAD6BD1D3B1ED8584723CC36C4D915D
+</td></tr>
+<tr>
+<td> 0x1A (nº27) </td>
+<td> 32 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 18BA71B3CEC1CCCDAD3395323C4259D72B1EF5E0
+</td></tr>
+<tr>
+<td> 0x1B (nº28) </td>
+<td style="background:#6666ff;"> 9 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td style="background:#6666ff;"> 703F1A6F0A576A8D85E8EB35B30FE5DAB7689988
+</td></tr>
+<tr>
+<td> 0x1C (nº29) </td>
+<td> 39 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 6347B31E98FA9A58195AB5D9ED1548A46CFE6FCE
+</td></tr>
+<tr>
+<td> 0x1D (nº30) </td>
+<td> 50 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 49481F76A9C591E03CA1B115D0FC9737A48837A3
+</td></tr>
+<tr>
+<td> 0x1E (nº31) </td>
+<td> 57 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> C1CE8AF37CA63059B835B2D6CD64E506B2E55397
+</td></tr>
+<tr>
+<td> 0x1F (nº32) </td>
+<td> 7 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 42CBF8134469B91F541DCF76CC4934E9F6CDEDC6
+</td></tr>
+<tr>
+<td> 0x20 (nº33) </td>
+<td> 53 </td>
+<td style="background:#CC5555; color:#FFFFFF; text-align: center;"> <span style="background:#CC5555; color:#FFFFFF;" title="No">No</span> </td>
+<td> 389ED925282AFEC432D2A1F042E0043D0E91F785
+</td></tr>
+</tbody></table>
+<ul><li>Jumps theory
+<ul><li>When the file is loaded, the firmware tryes to find ID 0x00 at position nº9 in "X-table" (at offset 0xB8)... in mirror's edge this value is not ID 0x00... has been replaced by ID 0x1B (position 28 in decimal)</li>
+<li>Then to locate ID 0x00 the firmware "jumps" +28 positions in "Protected files table"</li>
+<li>This has not been fully verifyed yet, and is most notable in the first "jump"... also is not clear if this ID's are in fact ID's, just a displacement, or both</li>
+<li>The next "jump" seems to be based in timestamps/filenames (see "talk" page)</li></ul></li></ul>
+<h3><span class="mw-headline" id="More_brainstorming">More brainstorming</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD?section=12" title="Edit section: More brainstorming">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li>The maximun number of entries in the <b>Protected files table</b> (114) is exactly the double than the maximun number of entries in <b>X table</b> (57) &amp; <b>Y table</b> (57). Or from other point of view 114 = 57 + 57
+<ul><li>Seems obvious that there is an "index number" assigned to each "protected file", but his positions are "scrambled"</li></ul></li></ul>
+<p><br>
+</p>
+<ul><li>The order of the files in the "protected files table" is based in his timestamps (not alphabetically, not by size). Or in other words... is related with how the PARAM.PFD was generated for first time
+<ul><li>Is the original order when the file was created for first time (based in his timestamps), when the files in the list are updated by the ps3 (his timestamp changes) they keeps his original position. When new files are added to the "protected files list table"... are added to the end of the list, based in his timestamps.</li>
+<li>When several "protected files" has the same timestamp (something very probable because can be generated by the game very fast)... the order is alphabeticall</li>
+<li>So when ordering them, the timestamp is preferent... and when timestamp matches is used his name (alphabetically)</li></ul></li></ul>
+<p><br>
+</p>
+<ul><li>Indexed files in the <b>X table</b> has a different number for each one, never repeats, but there is not direct relationship between the number of entries in <b>X table</b> &amp; <b>Y table</b> (both are fixed to 57) and the numer of files listed in the <b>Protected files table</b> (114)... the most logicall explain if that this 114 "protected files" can be linked to both tables (57 each)... but in fact the only table that stores crypto is the <b>Y table</b> (limited to 57)... so what trick they used&nbsp;? hmmmm</li></ul>
+<p><br>
+</p>
+<ul><li>What are this index in the <b>X table</b> and in the <b>Protected files table</b> itself?, his positions seems to be random (but the number of indexed files matches with the number of "protected files"), seems like an old school "lucas arts games" anticheat card where you pick 2 values and by mixing them you get the unlock code&nbsp;:D
+<ul><li>Seems to be "jumps" from one table to the other. The files are readed in order by the ps3 by "jumping" using his "index nº" to locate the next one... "Index nº0" seems to be located always at position 8 in the "X-Table" (offset 0xB8). In most complex PARAM.SFO (e.g: heavy rain, mirror's edge or motogp10/11) the value at this position is replaced by another "index nº" (by now seems random) that is pointing to the "protected files table" index area of each entry (where index nº0 is located). How this "jumps" works is partially unknown and by now is only notable in the first jump</li></ul></li></ul>
+<p><br>
+</p><p><br>
+Discussion thread ---&gt; <a rel="nofollow" target="_blank" class="external free" href="http://www.ps3hax.net/showthread.php?p=392684#post392684">http://www.ps3hax.net/showthread.php?p=392684#post392684</a>
+</p><p><br>
+</p><p><br>
+</p>
+<table class="navbox" cellspacing="0" style=";"><tbody><tr><td style="padding:2px;"><table cellspacing="0" class="nowraplinks collapsible uncollapsed" style="width:100%;background:transparent;color:inherit;;" id="collapsibleTable0"><tbody><tr><th scope="col" style=";" class="navbox-title" colspan="3"><span class="collapseButton">[<a id="collapseButton0" href="http://www.psdevwiki.com/ps3/PARAM.PFD#">hide</a>]</span><div class="noprint plainlinks hlist navbar" style=""><ul><li class="nv-view"><a href="http://www.psdevwiki.com/ps3/Template:File_Formats" title="Template:File Formats"><span style=";;background:none transparent;border:none;" title="View this template">v</span></a></li><li class="nv-edit"><a rel="nofollow" target="_blank" class="external text" href="http://www.psdevwiki.com/ps3/edit/Template:File_Formats"><span style=";;background:none transparent;border:none;" title="Edit this template">e</span></a></li></ul></div><div class="" style="font-size:110%;">
+<a href="http://www.psdevwiki.com/ps3/File_Formats" title="File Formats">File Formats</a></div></th></tr><tr style="height:2px;"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="http://www.psdevwiki.com/ps3/SCE_File_Types" title="SCE File Types">SCE File Types</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;">SELF</div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/App_Types" title="App Types">App Types</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Capability_Flags" title="Capability Flags">Capability Flags</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Control_Flags" title="Control Flags">Control Flags</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/SELF_File_Format_and_Decryption" title="SELF File Format and Decryption">SELF File Format and Decryption</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/NPDRM_Selfs" title="NPDRM Selfs">NPDRM Selfs</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/SPRX_File_Format" title="SPRX File Format">SPRX File Format</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/EDAT_files" title="EDAT files">EDAT files</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/SELF_Types" title="SELF Types">SELF Types</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/SELFs_inside_ELFs" title="SELFs inside ELFs">SELFs inside ELFs</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/License_Types" title="License Types">License Types</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Revision_versus_Version" title="Revision versus Version">Revision versus Version</a></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;">PKG</div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/PKG_files" title="PKG files">PKG files</a></div></td></tr></tbody></table><div></div></td><td class="navbox-image" style="width:0%;padding:0px 0px 0px 2px;" rowspan="15"><div>
+<img alt="" src="./PARAM.PFD - PS3 Developer wiki_files/50px-Main_formats.png" width="50" height="50" srcset="/ps3/images/thumb/7/7d/Main_formats.png/75px-Main_formats.png 1.5x, /ps3/images/7/7d/Main_formats.png 2x"></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">RCOXML</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;"><a href="http://www.psdevwiki.com/ps3/Resource_Container_(RCO)" title="Resource Container (RCO)">Resource Container (RCO)</a></div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/Rcomage" title="Rcomage">Rcomage</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/GimConv" title="GimConv">GimConv</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/MFAudio" title="MFAudio">MFAudio</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Languages" title="Languages">Languages</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMB_Fonts" title="XMB Fonts">XMB Fonts</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMB_Layouts" title="XMB Layouts">XMB Layouts</a></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;"><a href="http://www.psdevwiki.com/ps3/RCOXML_Coding" title="RCOXML Coding">RCOXML Coding</a></div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/RCOXML_Script" title="RCOXML Script">RCOXML Script</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/RCOXML_Images" title="RCOXML Images">RCOXML Images</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/RCOXML_Fonts" title="RCOXML Fonts">RCOXML Fonts</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/RCOXML_Texts" title="RCOXML Texts">RCOXML Texts</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/RCOXML_Models" title="RCOXML Models">RCOXML Models</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/RCOXML_Sounds" title="RCOXML Sounds">RCOXML Sounds</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/RCOXML_Objects" title="RCOXML Objects">RCOXML Objects</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/RCOXML_Animations" title="RCOXML Animations">RCOXML Animations</a></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;"><a href="http://www.psdevwiki.com/ps3/RCOXML_Examples" title="RCOXML Examples">RCOXML Examples</a></div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/RCOXML_ofw_animations" title="RCOXML ofw animations">RCOXML ofw animations</a></div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="http://www.psdevwiki.com/ps3/CXML_Containers" title="CXML Containers">CXML</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;"><a href="http://www.psdevwiki.com/ps3/Qt_Resource_Container_(QRC)" title="Qt Resource Container (QRC)">Qt Resource Container (QRC)</a></div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/Canyon.qrc" title="Canyon.qrc">Canyon.qrc</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Earth.qrc" title="Earth.qrc">Earth.qrc</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Icons.qrc" title="Icons.qrc">Icons.qrc</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Icontex.qrc" title="Icontex.qrc">Icontex.qrc</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Lines.qrc" title="Lines.qrc">Lines.qrc</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Raf.qrc" title="Raf.qrc">Raf.qrc</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Rhm.qrc" title="Rhm.qrc">Rhm.qrc</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Store.qrc" title="Store.qrc">Store.qrc</a></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;"><a href="http://www.psdevwiki.com/ps3/PlayStation_3_Theme_(P3T)" title="PlayStation 3 Theme (P3T)">PlayStation 3 Theme (P3T)</a></div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/01.p3t" title="01.p3t">01.p3t</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Raf_debug.p3t" title="Raf debug.p3t">raf_debug.p3t</a></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;"><a href="http://www.psdevwiki.com/ps3/Rich_Appearance_Format_(RAF)" title="Rich Appearance Format (RAF)">Rich Appearance Format (RAF)</a></div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/Coldboot.raf" title="Coldboot.raf">coldboot.raf</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Mustache.raf" title="Mustache.raf">mustache.raf</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/PlayStation_JavaScript" title="PlayStation JavaScript">PlayStation JavaScript</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/VSMX" title="VSMX">VSMX</a></div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;"><a href="http://www.psdevwiki.com/ps3/XMB#XMBML_Configuration_Files" title="XMB">XMBML</a></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;">XMB Config</div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/XMB-Users" title="XMB-Users">XMB-Users</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMB-Settings" title="XMB-Settings">XMB-Settings</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMB-Photo" title="XMB-Photo">XMB-Photo</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMB-Music" title="XMB-Music">XMB-Music</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMB-Video" title="XMB-Video">XMB-Video</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMB-TV" title="XMB-TV">XMB-TV</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMB-Game" title="XMB-Game">XMB-Game</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMB-Network" title="XMB-Network">XMB-Network</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMB-PSN" title="XMB-PSN">XMB-PSN</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMB-Friends" title="XMB-Friends">XMB-Friends</a></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;">DB Config</div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/Registory.xml" title="Registory.xml">registory.xml</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/edit/Upload_list.xml?redlink=1" class="new" title="Upload list.xml (page does not exist)">upload_list.xml</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/edit/Download_list.xml?redlink=1" class="new" title="Download list.xml (page does not exist)">download_list.xml</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/edit/Playlist.xml?redlink=1" class="new" title="Playlist.xml (page does not exist)">playlist.xml</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/edit/Videodownloader_list.xml?redlink=1" class="new" title="Videodownloader list.xml (page does not exist)">videodownloader_list.xml</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/edit/Savedata_list.xml?redlink=1" class="new" title="Savedata list.xml (page does not exist)">savedata_list.xml</a></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;"><a href="http://www.psdevwiki.com/ps3/XMBML_Coding" title="XMBML Coding">XMBML Coding</a></div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/XMBML_Functions" title="XMBML Functions">XMBML Functions</a></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;"><a href="http://www.psdevwiki.com/ps3/XMBML_Coding_Examples" title="XMBML Coding Examples">XMBML Examples</a></div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr style="height:2px"><td></td></tr><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/XMBML_Folder_Trees" title="XMBML Folder Trees">XMBML Folder Trees</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMBML_module-action" title="XMBML module-action">XMBML module-action</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMBML_Mountpoints" title="XMBML Mountpoints">XMBML Mountpoints</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/edit/XMBML_Database_Access?redlink=1" class="new" title="XMBML Database Access (page does not exist)">XMBML Database Access</a></div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Databases</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/XRegistry.sys" title="XRegistry.sys">XRegistry.sys</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/XMB_database" title="XMB database">XMB database</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Project_Database_(PDB)" title="Project Database (PDB)">Project Database (PDB)</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/edit/MMS?redlink=1" class="new" title="MMS (page does not exist)">MMS</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/edit/XIL?redlink=1" class="new" title="XIL (page does not exist)">XIL</a></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">System Data</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;">XMB Preload</div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/Content_Information_Files" title="Content Information Files">Content Information Files</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/PARAM.HIS" title="PARAM.HIS">PARAM.HIS</a>&nbsp;<span style="font-weight:bold;">·</span> <strong class="selflink">PARAM.PFD</strong>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/PARAM.SFO" title="PARAM.SFO">PARAM.SFO</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/PS3_DISC.SFB" title="PS3 DISC.SFB">PS3_DISC.SFB</a></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;">Licences</div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/ACT.DAT" title="ACT.DAT">ACT.DAT</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/LIC.DAT" title="LIC.DAT">LIC.DAT</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/LICENSE.DAT" title="LICENSE.DAT">LICENSE.DAT</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/LICENSE.INFO" title="LICENSE.INFO">LICENSE.INFO</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/PKG_DIGEST.DAT" title="PKG DIGEST.DAT">PKG DIGEST.DAT</a></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;"><a href="http://www.psdevwiki.com/ps3/Game_Data" title="Game Data">Game Data</a></div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+&nbsp;<span style="font-weight:bold;">·</span> </div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;"><a href="http://www.psdevwiki.com/ps3/Game_Saves" title="Game Saves">Game Saves</a></div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/PS3_Savedata" title="PS3 Savedata">PS3 Savedata</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/PS2_Savedata" title="PS2 Savedata">PS2 Savedata</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/PS1_Savedata" title="PS1 Savedata">PS1 Savedata</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/PSP_Savedata" title="PSP Savedata">PSP Savedata</a></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;"><a href="http://www.psdevwiki.com/ps3/Trophy_files" title="Trophy files">Trophy Data</a></div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/Trophy_livelist" title="Trophy livelist">Trophy livelist</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/TROPHY.TRP" title="TROPHY.TRP">TROPHY.TRP</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Trophy" title="Trophy">Trophy</a></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Games/Apps</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd hlist"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;">PS3</div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/BDemu_Drive_Format" title="BDemu Drive Format">BDemu Drive Format</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/PlayStation_archive_(PSARC)" title="PlayStation archive (PSARC)">PlayStation archive (PSARC)</a></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";padding-left:0em;padding-right:0em;;"><div style="padding:0em 0.75em;">Emulators</div></th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even"><div style="padding:0em 0.25em">
+</div><table cellspacing="0" class="nowraplinks navbox-subgroup" style="width:100%;;;;"><tbody><tr><td colspan="2" style="width:100%;padding:0px;;;" class="navbox-list navbox-odd"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/PSISOIMG0000" title="PSISOIMG0000">PSISOIMG0000</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Iso.bin.edat" title="Iso.bin.edat">Iso.bin.edat</a></div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td></tr><tr style="height:2px"><td></td></tr><tr><th scope="row" class="navbox-group" style=";;">Unsorted</th><td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even hlist"><div style="padding:0em 0.25em">
+<a href="http://www.psdevwiki.com/ps3/Archive.dat" title="Archive.dat">archive.dat</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Bootflag.dat" title="Bootflag.dat">bootflag.dat</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Eboot.PBP" title="Eboot.PBP">Eboot.PBP</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Lv0ldr" title="Lv0ldr">lv0ldr</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Lv0" title="Lv0">lv0</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/Lv1.self" title="Lv1.self">lv1.self</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://www.psdevwiki.com/ps3/SIG_File_Format" title="SIG File Format">SIG File Format</a></div></td></tr></tbody></table></td></tr></tbody></table>
+
+<!-- 
+NewPP limit report
+CPU time usage: 1.850 seconds
+Real time usage: 1.869 seconds
+Preprocessor visited node count: 7433/1000000
+Preprocessor generated node count: 11975/1000000
+Post‐expand include size: 154044/2097152 bytes
+Template argument size: 103023/2097152 bytes
+Highest expansion depth: 19/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key psdevwiki_ps3-wiki_:pcache:idhash:312-0!*!0!!en-gb!5!* and timestamp 20171021173911 and revision id 46903
+ -->
+</div>									<div class="printfooter">
+						Retrieved from ‘<a dir="ltr" href="http://www.psdevwiki.com/ps3/index.php?title=PARAM.PFD&amp;oldid=46903">http://www.psdevwiki.com/ps3/index.php?title=PARAM.PFD&amp;oldid=46903</a>’					</div>
+													<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="http://www.psdevwiki.com/ps3/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="http://www.psdevwiki.com/ps3/Category:Wikify_needed" title="Category:Wikify needed">Wikify needed</a></li><li><a href="http://www.psdevwiki.com/ps3/Category:File_Formats" title="Category:File Formats">File Formats</a></li><li><a href="http://www.psdevwiki.com/ps3/Category:Main" title="Category:Main">Main</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="http://www.psdevwiki.com/ps3/index.php?title=Special:UserLogin&amp;returnto=PARAM.PFD&amp;type=signup">Create account</a></li><li id="pt-login"><a href="http://www.psdevwiki.com/ps3/index.php?title=Special:UserLogin&amp;returnto=PARAM.PFD" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="http://www.psdevwiki.com/ps3/PARAM.PFD" title="View the content page [alt-shift-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk"><span><a href="http://www.psdevwiki.com/ps3/Talk:PARAM.PFD" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="http://www.psdevwiki.com/ps3/PARAM.PFD">Read</a></span></li>
+															<li id="ca-edit"><span><a href="http://www.psdevwiki.com/ps3/edit/PARAM.PFD" title="You can edit this page. Please use the preview button before saving [alt-shift-e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="http://www.psdevwiki.com/ps3/history/PARAM.PFD" title="Past revisions of this page [alt-shift-h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0"><span>More</span><a href="http://www.psdevwiki.com/ps3/PARAM.PFD#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="http://www.psdevwiki.com/ps3/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search PS3 Developer wiki [alt-shift-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(/ps3/logo.png);" href="http://www.psdevwiki.com/ps3/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal first" role="navigation" id="p-PS_devwiki_ring" aria-labelledby="p-PS_devwiki_ring-label">
+			<h3 id="p-PS_devwiki_ring-label">PS devwiki ring</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-PS3-devwiki"><a href="http://www.psdevwiki.com/ps3/" rel="nofollow" target="_blank">PS3 devwiki</a></li>
+													<li id="n-PS4-devwiki"><a href="http://www.psdevwiki.com/ps4/" rel="nofollow" target="_blank">PS4 devwiki</a></li>
+													<li id="n-PSP-devwiki"><a href="http://www.pspdevwiki.com/" rel="nofollow" target="_blank">PSP devwiki</a></li>
+													<li id="n-PSVita-devwiki"><a href="http://www.vitadevwiki.com/" rel="nofollow" target="_blank">PSVita devwiki</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="http://www.psdevwiki.com/ps3/Main_Page" title="Visit the main page [alt-shift-z]" accesskey="z">Main page</a></li>
+													<li id="n-Downloads"><a href="http://www.psdevwiki.com/ps3/files/" rel="nofollow" target="_blank">Downloads</a></li>
+													<li id="n-portal"><a href="http://www.psdevwiki.com/ps3/PS3_Developer_wiki:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+													<li id="n-currentevents"><a href="http://www.psdevwiki.com/ps3/PS3_Developer_wiki:Current_events" title="Find background information on current events">Current events</a></li>
+													<li id="n-recentchanges"><a href="http://www.psdevwiki.com/ps3/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-randompage"><a href="http://www.psdevwiki.com/ps3/Special:Random" title="Load a random page [alt-shift-x]" accesskey="x">Random page</a></li>
+													<li id="n-All-Pages"><a href="http://www.psdevwiki.com/ps3/Special:AllPages">All Pages</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" target="_blank" title="The place to find out">Help</a></li>
+													<li id="n-Donate"><a href="http://www.psdevwiki.com/ps3/Donations">Donate</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="http://www.psdevwiki.com/ps3/Special:WhatLinksHere/PARAM.PFD" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="http://www.psdevwiki.com/ps3/Special:RecentChangesLinked/PARAM.PFD" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="http://www.psdevwiki.com/ps3/Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="http://www.psdevwiki.com/ps3/index.php?title=PARAM.PFD&amp;printable=yes" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="http://www.psdevwiki.com/ps3/index.php?title=PARAM.PFD&amp;oldid=46903" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="http://www.psdevwiki.com/ps3/index.php?title=PARAM.PFD&amp;action=info">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 20 October 2017, at 23:03.</li>
+											<li id="footer-info-viewcount">This page has been accessed 59,956 times.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.txt">GNU Free Documentation License 1.2</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://www.psdevwiki.com/ps3/PS3_Developer_wiki:Privacy_policy" title="PS3 Developer wiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://www.psdevwiki.com/ps3/PS3_Developer_wiki:About" title="PS3 Developer wiki:About">About PS3 Developer wiki</a></li>
+											<li id="footer-places-disclaimer"><a href="http://www.psdevwiki.com/ps3/PS3_Developer_wiki:General_disclaimer" title="PS3 Developer wiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://www.gnu.org/licenses/old-licenses/fdl-1.2.txt"><img src="./PARAM.PFD - PS3 Developer wiki_files/gnu-fdl.png" alt="GNU Free Documentation License 1.2" width="88" height="31"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="http://www.mediawiki.org/"><img src="./PARAM.PFD - PS3 Developer wiki_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"http://www.psdevwiki.com/ps3/load.php?debug=false\u0026amp;lang=en-gb\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script><script src="./PARAM.PFD - PS3 Developer wiki_files/load(5).php"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":2119});
+}</script>
+	
+<!-- Cached 20171021173914 -->
+
+	<div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>
