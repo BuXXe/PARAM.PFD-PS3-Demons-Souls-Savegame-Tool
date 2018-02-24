@@ -1,0 +1,188 @@
+//------------------------------------------------
+//--- 010 Editor v8.0.1 Binary Template
+//
+//      File: 
+//   Authors: BuXXe
+//   Version: 
+//   Purpose: Demon Souls PS3 savegame
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: 
+//------------------------------------------------
+#include <DemonSoulsEnums.bt>
+BigEndian();
+int unknown0<comment="Unkown Data",hidden=true, bgcolor=0xBBBBBB>;
+byte WorldIndex;
+byte BlockIndex;
+char unknown01[0x4A]<comment="Unkown Data",hidden=true, bgcolor=0xBBBBBB>; 
+struct Stats{
+    int CurrentHP;
+    int unknown0<comment="Unknown Data (same as Current HP/max HP??)",hidden=true>;
+    int MaxHP;
+    int CurrentMP;
+    int unknown1<comment="Unknown Data (same as Current MP/max MP??)",hidden=true>;
+    int MaxMP;
+    int unknown2<comment="Unknown Data",hidden=true>;
+    int CurrentStamina;
+    int unknown3<comment="Unknown Data (same as Current Stamina/max Stamina??)",hidden=true>;
+    int MaxStamina;
+    int unknown4<comment="Unknown Data",hidden=true>;
+    int unknown5<comment="Unknown Data ( connected to Vitality?)",hidden=true>;
+    int Vitality;
+    int unknown6<comment="Unknown Data ( connected to Intelligence?)",hidden=true>;
+    int Intelligence;
+    int unknown7<comment="Unknown Data ( connected to Endurance?)",hidden=true>;
+    int Endurance;
+    int unknown8<comment="Unknown Data ( connected to Strength?)",hidden=true>;
+    int Strength;
+    int unknown9<comment="Unknown Data ( connected to Dexterity?)",hidden=true>;
+    int Dexterity;
+    int unknown10<comment="Unknown Data ( connected to Magic?)",hidden=true>;
+    int Magic;
+    int unknown11<comment="Unknown Data ( connected to Faith?)",hidden=true>;
+    int Faith;
+    int unknown12<comment="Unknown Data ( connected to Luck?)",hidden=true>;
+    int Luck;
+};
+Stats stats <comment="Status", bgcolor=0xAA22FF>;
+
+int Souls <comment=SoulComment,bgcolor=0x2FFFAD>;
+int unknown02[2]<comment="Unkown Data",hidden=true, bgcolor=0xBBBBBB>;
+int SoulMemory <comment=SoulComment,bgcolor=0x2FFFAD>;
+int LevelsPurchased<comment=SoulComment,bgcolor=0x211FAD>;
+char unknown2[0x4]<comment="Unkown Data",hidden=true, bgcolor=0xBBBBBB>;     
+
+string SoulComment( int souls )
+{
+    if( souls > 0x3B9AC9FF  )
+        return "***Max value for souls is 999.999.999, greater results in 0 souls or no change";
+    else
+        return "Souls Amount";
+}
+
+
+wchar_t character_name[0x10]<comment="Character Name (max 16 chars)", bgcolor=0xFF00FF>;
+char unknown21[0x2]<bgcolor=0xBBBBBB,hidden=true>;
+enum <byte> GENDER {FEMALE=0x00,MALE=0x01};
+GENDER gender<bgcolor=0x33EE22>;
+char unknown22[0x4]<bgcolor=0xBBBBBB,hidden=true>;
+enum <byte> STARTINGCLASS{Soldier,Knight,Hunter,Priest,Magician,Wanderer,Barbarian,Thief,Temple_Knight,Royalty};
+STARTINGCLASS class<bgcolor=0x11CC88>;
+
+char unknown3[0x190]<comment="Unkown Data",hidden=true, bgcolor=0xBBBBBB>; 
+
+struct Equipment{
+    // equipped weapons
+    ITEMIDS l_mainarm <format=hex>;
+    ITEMIDS r_mainarm <format=hex>;
+    ITEMIDS l_sidearm <format=hex>;
+    ITEMIDS r_sidearm <format=hex>;
+    // equipped arrows / bolts
+    ITEMIDS arrow_type <format=hex>;
+    ITEMIDS bolt_type <format=hex>;
+    // equipped armor
+    ITEMIDS helmet <format=hex>;
+    ITEMIDS chest <format=hex>;
+    ITEMIDS gauntlets <format=hex>;
+    ITEMIDS leggings <format=hex>;
+    // hairstyle
+    HAIRSTYLEIDS hairstyle <format=hex>;
+    // equipped rings
+    ITEMIDS ring1 <format=hex>;
+    ITEMIDS ring2 <format=hex>;
+    // quick item slots
+    ITEMIDS quickslot1 <format=hex>;
+    ITEMIDS quickslot2 <format=hex>;
+    ITEMIDS quickslot3 <format=hex>;
+    ITEMIDS quickslot4 <format=hex>;
+    ITEMIDS quickslot5 <format=hex>;
+};
+
+Equipment e<comment="Character Equipment", bgcolor=0x00FF00>;
+
+enum ITEMTYPE { WEAPON=0,ARMOR=0x10000000,RING=0x20000000,ITEM=0x40000000};
+enum <byte> ITEMTYPE2{ DWEAPON=0,DARMOR=0x10,DRING=0x20,DITEM=0x40};
+
+struct Inventory_Entry 
+{
+    ITEMTYPE type;
+    ITEMIDS itemID;
+    int itemCount;
+    char misc[20] <comment="Unknown Item Data">;
+};
+
+struct Inventory
+{
+    int used_entries;
+    int max_entries;
+    Inventory_Entry entries[max_entries];
+};
+Inventory inv <bgcolor=0xff0000>;
+
+int unknown31<comment="Unkown Data",hidden=true, bgcolor=0xBBBBBB>;
+int SpellSlots<bgcolor=0xA51485>;
+char unknown32[0x28]<comment="Unkown Data",hidden=true, bgcolor=0xBBBBBB>;
+int MiracleSlots<bgcolor=0xA51485>;
+char unknown4[0x4058]<comment="Unkown Data",hidden=true, bgcolor=0xBBBBBB>; 
+struct HairColor{
+    float HairR<bgcolor=0xff0000>;
+    float HairG<bgcolor=0xff0000>;
+    float HairB<bgcolor=0xff0000>;
+};
+HairColor haircolor;
+char b[0x74]<comment="Unkown Data",hidden=true, bgcolor=0xBBBBBB>;
+
+struct Spell{
+    SPELLSTATUS spellstatus;
+    SPELLIDS spellID;
+    int Misc1;
+    int Misc2;
+};
+struct Spellbook
+{
+    int spellcount;
+    Spell spells[spellcount];
+};
+Spellbook spellbook<bgcolor=0xFFFF00>;
+
+char unknown5 [0x62C]<comment="Unkown Data",hidden=true, bgcolor=0xBBBBBB>;
+struct Deposit_Entry{
+    int unknown1<comment="Unkown Data",hidden=true>; 
+    ITEMTYPE2 type;
+    byte ITEMID[3];
+    
+    int unknown2<comment="Unkown Data",hidden=true>; 
+    byte count;
+    char unknown3[7]<comment="Unkown Data",hidden=true>; 
+};
+
+  
+struct Deposit
+{      
+    Deposit_Entry entries[2048];
+};
+
+Deposit depo < bgcolor=0x00A5FF>;
+
+int unknown6[2]<comment="Unkown Data",hidden=true, bgcolor=0xBBBBBB>;
+
+struct Tendencies{
+    float Character_Tendency;
+    float ctpad;
+    float Nexus_Tendency;
+    float ntpad;
+    float World1_Tendency;
+    float w1tpad;    
+    float World4_Tendency;
+    float w4tpad;
+    float World3_Tendency;
+    float w3tpad;
+    float World5_Tendency;
+    float w5tpad;
+    float World2_Tendency;
+    float w2tpad;
+
+};
+
+Tendencies tendencies<bgcolor=0x22F1AA>;
