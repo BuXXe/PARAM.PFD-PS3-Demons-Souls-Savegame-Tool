@@ -11,6 +11,8 @@ import re
 # key is from sc_iso module 1.00-4.00 - SYSCON_MANAGER_KEY 
 SYSCON_MANAGER_KEY = unhexlify("D413B89663E1FE9F75143D3BB4565274")
 
+KEYGEN_KEY = unhexlify("6B1ACEA246B745FD8F93763B920594CD53483B82")
+
 # Predefined secure_fileID for each encrypted PS3 Game
 # this one is for Demon Souls
 # the id gets further additions
@@ -222,8 +224,14 @@ class PARAM_PFD:
             # for a version 4 file it would be: realkey = HMACSHA1(<keygen_key>, File_HMAC_key)
             # keygen_key = 6B1ACEA246B745FD8F93763B920594CD53483B82
             # based on info from https://github.com/Wulf2k/DeS-SaveEdit : Param_PFD.vb
-            self.realkey = self.header["File_HMAC_key"]
-            
+            if byteToInt(self.header["version"])==3:
+                self.realkey = self.header["File_HMAC_key"] 
+            else:
+                # version 4 and fallback for all yet unknown versions
+                h = HMAC.new(KEYGEN_KEY ,None,SHA)
+                h.update(self.header["File_HMAC_key"])
+                self.realkey = unhexlify(h.hexdigest())
+                
             # tables header
             self.tables_header={}
             self.tables_header["XY_tables_reserved_entries"]=f.read(8)

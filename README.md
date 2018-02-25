@@ -13,7 +13,6 @@ _The savegame structure seems to use ???USER.DAT(??? are numbers) files of 256kb
 The tool is based on python 2.7 and uses the crypto library pycrypto which can be installed using `pip install pycrypto`
 ## Limits and TODOS
 The tool is able to decrypt / encrypt protected files and resign the PARAM.PFD if files were changed. This is currently only tested for Demon's Souls savegame files. Right now there are these known limitations / TODOS:
-* The real key seems to change according to PARAM.PFD version. Right now version 3 is hardcoded. Concepts for version 4 are mentioned in the diagrams
 * The PARAM.SFO can be parsed using the PARAM_SFO.py but the encryption / decryption is not done yet (reason: it uses some different mechanisms)
 
 ## Usage
