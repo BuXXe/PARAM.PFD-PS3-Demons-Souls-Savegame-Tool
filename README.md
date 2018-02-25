@@ -3,7 +3,7 @@ This script can open and decrypt PS3 savegame files protected by a PARAM.PFD. Fu
 
 ## Overview
 The PARAM_PFD.py has all the things you need to do the decrypt / encrypt / sign stuff.  
-The PARAM_SFO.py just parses the .SFO but it is never really used in the rest of the project
+The PARAM_SFO.py just parses the .SFO but it is never really used in the rest of the project  
 The Main.py just shows the usage of the script.    
   
 _<Demon's Souls specific part>:_   
