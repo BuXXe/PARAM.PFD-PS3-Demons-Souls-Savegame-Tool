@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PARAM.PFD-PS3-Demons-Souls-Savegame-Tool1", "PARAM.PFD-PS3-Demons-Souls-Savegame-Tool1.pyproj", "{72A81F0E-7A29-44BA-8401-7A1F56E4A1AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72A81F0E-7A29-44BA-8401-7A1F56E4A1AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A81F0E-7A29-44BA-8401-7A1F56E4A1AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70A2CFA7-4F77-4BD3-A951-215D163A24B1}
+	EndGlobalSection
+EndGlobal
