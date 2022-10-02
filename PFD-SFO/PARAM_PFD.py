@@ -13,17 +13,19 @@ SYSCON_MANAGER_KEY = unhexlify("D413B89663E1FE9F75143D3BB4565274")
 
 KEYGEN_KEY = unhexlify("6B1ACEA246B745FD8F93763B920594CD53483B82")
 
-# Predefined secure_fileID for each encrypted PS3 Game
-# this one is for Demon Souls
-# the id gets further additions
-# based on info from https://github.com/Wulf2k/DeS-SaveEdit : Param_PFD.vb -> GenerateHashKeyForSecureFileID
-secure_fileID = "0123456789ABCDEFFEDCBA9876543210"
-secure_fileID=re.findall('..',secure_fileID)
-secure_fileID.insert(5,"0a")
-secure_fileID.insert(3,"0e")
-secure_fileID.insert(1,"0f")
-secure_fileID.insert(1,"0b")
-secure_fileID=unhexlify("".join(secure_fileID))
+def sid_fix(secure_fileID):
+    # Predefined secure_fileID for each encrypted PS3 Game
+    # this one is for Demon Souls
+    # the id gets further additions
+    # based on info from https://github.com/Wulf2k/DeS-SaveEdit : Param_PFD.vb -> GenerateHashKeyForSecureFileID
+    # secure_fileID = "0123456789ABCDEFFEDCBA9876543210"
+    secure_fileID=re.findall('..',secure_fileID)
+    secure_fileID.insert(5,"0a")
+    secure_fileID.insert(3,"0e")
+    secure_fileID.insert(1,"0f")
+    secure_fileID.insert(1,"0b")
+    secure_fileID=unhexlify("".join(secure_fileID))
+    return secure_fileID
 
 def byteToInt(data):
     return int(hexlify(data),16)
@@ -38,7 +40,7 @@ class PARAM_PFD:
 
     # gathers all elements and outputs the PARAM.PFD to a defined folder
     def outputPFD(self,folder):
-        if not os.path.exists(folder):
+        if not os.path.isdir(folder):
             os.makedirs(folder)   
         with open(folder+"/PARAM.PFD", "wb") as f:
             f.write(self.header["magic"])
@@ -69,7 +71,7 @@ class PARAM_PFD:
 
     # encrypts / decrypts DAT files 
     def cryptohandler(self, folder,pfd_entry,dodecrypt):
-        decipher = AES.new(SYSCON_MANAGER_KEY, AES.MODE_CBC, secure_fileID[:16])
+        decipher = AES.new(SYSCON_MANAGER_KEY, AES.MODE_CBC, self.secure_fileID[:16])
         decryptionkey = decipher.decrypt(pfd_entry["key"])
         filepath=folder+"/"+pfd_entry["file_name"].rstrip('\x00')
         output = ""
@@ -101,18 +103,22 @@ class PARAM_PFD:
     # and write them to targetfolder
     # uses the filestable of the opened param.pfd
     def cryptAllDatFiles(self, sourcefolder, targetfolder, dodecrypt):
-        if not os.path.exists(targetfolder):
+        if not os.path.isdir(targetfolder):
             os.makedirs(targetfolder)
 
         for u in self.protected_files_table:
             if "PARAM.SFO" in u["file_name"]:
                 continue
 
+            print u["file_name"]
+
             # get encrypted / decrypted data
             data = self.cryptohandler(sourcefolder,u,True) if dodecrypt else self.cryptohandler(sourcefolder,u,False)
             
             with open(targetfolder+"/"+u["file_name"].rstrip('\x00'),'wb') as x:
                 x.write(data)
+
+
 
     # wrapper for the lazy people
     def decryptAllDatFiles(self, sourcefolder, targetfolder):
@@ -121,10 +127,13 @@ class PARAM_PFD:
     # wrapper for the lazy people
     def encryptAllDatFiles(self, sourcefolder, targetfolder):
         self.cryptAllDatFiles(sourcefolder,targetfolder,False)
-        
+
+    def cryptAllDatFiles_wrap(self,dodecrypt):
+        self.cryptAllDatFiles(self.folder,self.folder,dodecrypt)        
+
     # calculate a HMACSHA1 file hash for a given filepath
     def calculateValidEntryHash(self, filepath):
-        h = HMAC.new(secure_fileID,None,SHA)
+        h = HMAC.new(self.secure_fileID,None,SHA)
         with open(filepath, "rb") as f:
             h.update(f.read(os.path.getsize(filepath)))
         return h.hexdigest()
@@ -199,9 +208,14 @@ class PARAM_PFD:
         # encrypt the header table back 
         # write everything to <outputfolder>/PARAM.PFD
         self.outputPFD(outputfolder)
+    
+    def rebuildPFD_wrap(self):
+        self.rebuildPFD(self.folder)
 
     # read the PARAM.PFD in the given folder
-    def __init__(self,folder):          
+    def __init__(self,folder,sid):
+        self.secure_fileID = sid_fix(sid)
+        self.folder = folder
         with open(folder+"/PARAM.PFD", "rb") as f:
             self.header = {}
             self.header["magic"] = f.read(8)
